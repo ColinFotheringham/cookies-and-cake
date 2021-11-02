@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { MenuItems } from './NavItems';
+import { NavItems } from './NavItems';
 import './mainNav.css'
 
 function MainNav() {
@@ -10,10 +10,10 @@ function MainNav() {
     <Navbar bg ='myPink' variant ='dark'>
         
 
-            {MenuItems.map((item, index) => {
+            {NavItems.map((item, index) => {
                 return (
 
-                <Nav.Link key = {index} href= {item.url} className= {item.cName}>{item.title}</Nav.Link>
+                    <Nav.Link key = {index} href= {item.url} className= {item.cName}>{item.title}</Nav.Link>
 
                 )
             })}   
