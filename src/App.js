@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <img src= {logo} className="logo" alt="The logo of cookies and cake"/>
      <Nav/>
+     <h1>Welcome to our website</h1>
     </div>
   );
 }
