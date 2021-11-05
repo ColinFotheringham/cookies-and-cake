@@ -15,120 +15,129 @@ CREATE TABLE item_category (
    Thinking the sizes of cakes can have many modifiers? 
 **********************************************************************/
 
-CREATE TABLE item_mod (
-  id                 SERIAL        NOT NULL PRIMARY KEY
-, item_mod_name      varchar(255)  NOT NULL
+CREATE TABLE item_entry (
+  id            Serial             NOT NULL PRIMARY KEY 
+, category_id   INT                NOT NULL REFERENCES category(id)
+, price         DECIMAL            NOT NULL
+, product_size  varchar(4000)      
 );
 
 CREATE TABLE item (
   id                 SERIAL         NOT NULL PRIMARY KEY
 , item_category      INT            NOT NULL REFERENCES item_category(id)
 , item_name          varchar(4000)  NOT NULL
-, item_description   varchar(4000)  NOT NULL
+, item_description   varchar(4000)  
 , image_dest         varchar(4000)  NOT NULL 
-,  
-
 );
 
+/******************************************************************* 
+  Item  Table
+**********************************************************************/
+INSERT INTO item (, 1, "Chocolate Peanut Butter", "Rich chocolate cake layers with a whipped peanut butter frosting. Topped with a chocolate drip and peanut butter cups.", "Menu-Pictures/1.jpg");
+INSERT INTO item (, 1, "Cookies and Cream", "Rich chocolate cake layers, oreo filling, and a swiss meringue oreo frosting. Topped with a chocolate drip and mini oreos.", "Menu-Pictures/2.jpg");
+INSERT INTO item (, 1, "Birthday Funfetti", "Funfetti cake layers with a rainbow chip filling and vanilla swiss meringue buttercream. Topped with your choice of a white chocolate or chocolate drip.", "Menu-Pictures/3.jpg");
+INSERT INTO item (, 1, "Oreo Funfetti", "Oreo studded funfetti cake layers with rainbow chip filling and an Oreo swiss meringue buttercream.", "Menu-Pictures/5.jpg");
+INSERT INTO item (, 1, "Cinamon Bun", "Cinnamon swirl vanilla cake layers with cream cheese frosting and a brown sugar cinnamon caramel sauce.", "Menu-Pictures/6.jpg");
+INSERT INTO item (, 1, "Strawberries and Cream", "Vanilla cake layers with a strawberry whipped cream filling and a light layer of vanilla swiss meringue buttercream", "Menu-Pictures/7.jpg");
+INSERT INTO item (, 1, "S'mores", "Graham cracker cake layers, toasted marshmallow filling, chocolate ganache, and a chocolate buttercream", "Menu-Pictures/8.jpg");
+INSERT INTO item (, 1, "Peanut Butter S'mores", "Graham cracker layers, toasted marshmallow filling, chocolate ganache, and a peanut butter buttercream", "Menu-Pictures/9.jpg");
+INSERT INTO item (, 1, "Strawberry Vanilla", "Vanilla cake layers with a strawberry buttercream", "Menu-Pictures/10.jpg");
+INSERT INTO item (, 1, "Mini Egg", "Vanilla bean cake layers studded with mini eggs with a chocolate buttercream frosting.", "Menu-Pictures/11.jpg");
+INSERT INTO item (, 1, "Chocolate Chip Cookie Cake", "Yellow chocolate chip cake layers with a cookie dough filling and brown sugar buttercream topped with chocolate chip cookies.","Menu-Pictures/12.jpg");
+INSERT INTO item (, 1, "Lemon Blueberry", "Lemon blueberry cake layers with a lemon cream cheese frosting.", "Menu-Pictures/13.jpg");
 
+INSERT INTO item (, 2, """Loaded"" Chocolate Cake", "Rich chocolate cake layers with a chocolate ganache filling and chocolate buttercream. Topped with chocolate drip and various kinds of chocolates and treats.", "Menu-Pictures/14.jpg");
+INSERT INTO item (, 2, """Loaded"" Cookies and Cream", "Rich chocolate cake layers, oreo filling, and a swiss meringue oreo frosting. Topped with a chocolate drip and various cookies and cream treats.", "Menu-Pictures/15.jpg");
 
+INSERT INTO item (, 3, "Chocolate Peanut Butter", "Rich chocolate cake layers with a whipped peanut butter frosting. Topped with a chocolate drip and peanut butter cups.", "Menu-Pictures/1.jpg");
+INSERT INTO item (, 3, "Cookies and Cream", "Rich chocolate cake layers, oreo filling, and a swiss meringue oreo frosting. Topped with a chocolate drip and mini oreos.", "Menu-Pictures/2.jpg");
+INSERT INTO item (, 3, "Birthday Funfetti", "Funfetti cake layers with a rainbow chip filling and vanilla swiss meringue buttercream. Topped with your choice of a white chocolate or chocolate drip.", "Menu-Pictures/3.jpg");
+INSERT INTO item (, 3, "Oreo Funfetti", "Oreo studded funfetti cake layers with rainbow chip filling and an Oreo swiss meringue buttercream.", "Menu-Pictures/5.jpg");
+INSERT INTO item (, 3, "Cinamon Bun", "Cinnamon swirl vanilla cake layers with cream cheese frosting and a brown sugar cinnamon caramel sauce.", "Menu-Pictures/6.jpg");
+INSERT INTO item (, 3, "Strawberries and Cream", "Vanilla cake layers with a strawberry whipped cream filling and a light layer of vanilla swiss meringue buttercream", "Menu-Pictures/7.jpg");
+INSERT INTO item (, 3, "S'mores", "Graham cracker cake layers, toasted marshmallow filling, chocolate ganache, and a chocolate buttercream", "Menu-Pictures/8.jpg");
+INSERT INTO item (, 3, "Peanut Butter S'mores", "Graham cracker layers, toasted marshmallow filling, chocolate ganache, and a peanut butter buttercream", "Menu-Pictures/9.jpg");
+INSERT INTO item (, 3, "Strawberry Vanilla", "Vanilla cake layers with a strawberry buttercream", "Menu-Pictures/10.jpg");
+INSERT INTO item (, 3, "Mini Egg", "Vanilla bean cake layers studded with mini eggs with a chocolate buttercream frosting.", "Menu-Pictures/11.jpg");
+INSERT INTO item (, 3, "Chocolate Chip Cookie Cake", "Yellow chocolate chip cake layers with a cookie dough filling and brown sugar buttercream topped with chocolate chip cookies.","Menu-Pictures/12.jpg");
+INSERT INTO item (, 3, "Lemon Blueberry", "Lemon blueberry cake layers with a lemon cream cheese frosting.", "Menu-Pictures/13.jpg");
+INSERT INTO item (, 3, """Loaded"" Chocolate Cake", "Rich chocolate cake layers with a chocolate ganache filling and chocolate buttercream. Topped with chocolate drip and various kinds of chocolates and treats.", "Menu-Pictures/14.jpg");
+INSERT INTO item (, 3, """Loaded"" Cookies and Cream", "Rich chocolate cake layers, oreo filling, and a swiss meringue oreo frosting. Topped with a chocolate drip and various cookies and cream treats.", "Menu-Pictures/15.jpg");
 
+INSERT INTO item (, 4, "Chocolate Peanut Butter", "Rich chocolate cake layers with a whipped peanut butter frosting. Topped with a chocolate drip and peanut butter cups.", "Menu-Pictures/1.jpg");
+INSERT INTO item (, 4, "Cookies and Cream", "Rich chocolate cake layers, oreo filling, and a swiss meringue oreo frosting. Topped with a chocolate drip and mini oreos.", "Menu-Pictures/2.jpg");
+INSERT INTO item (, 4, "Birthday Funfetti", "Funfetti cake layers with a rainbow chip filling and vanilla swiss meringue buttercream. Topped with your choice of a white chocolate or chocolate drip.", "Menu-Pictures/3.jpg");
+INSERT INTO item (, 4, "Oreo Funfetti", "Oreo studded funfetti cake layers with rainbow chip filling and an Oreo swiss meringue buttercream.", "Menu-Pictures/5.jpg");
+INSERT INTO item (, 4, "Cinamon Bun", "Cinnamon swirl vanilla cake layers with cream cheese frosting and a brown sugar cinnamon caramel sauce.", "Menu-Pictures/6.jpg");
+INSERT INTO item (, 4, "Strawberries and Cream", "Vanilla cake layers with a strawberry whipped cream filling and a light layer of vanilla swiss meringue buttercream", "Menu-Pictures/7.jpg");
+INSERT INTO item (, 4, "S'mores", "Graham cracker cake layers, toasted marshmallow filling, chocolate ganache, and a chocolate buttercream", "Menu-Pictures/8.jpg");
+INSERT INTO item (, 4, "Peanut Butter S'mores", "Graham cracker layers, toasted marshmallow filling, chocolate ganache, and a peanut butter buttercream", "Menu-Pictures/9.jpg");
+INSERT INTO item (, 4, "Strawberry Vanilla", "Vanilla cake layers with a strawberry buttercream", "Menu-Pictures/10.jpg");
+INSERT INTO item (, 4, "Mini Egg", "Vanilla bean cake layers studded with mini eggs with a chocolate buttercream frosting.", "Menu-Pictures/11.jpg");
+INSERT INTO item (, 4, "Chocolate Chip Cookie Cake", "Yellow chocolate chip cake layers with a cookie dough filling and brown sugar buttercream topped with chocolate chip cookies.","Menu-Pictures/12.jpg");
+INSERT INTO item (, 4, "Lemon Blueberry", "Lemon blueberry cake layers with a lemon cream cheese frosting.", "Menu-Pictures/13.jpg");
+INSERT INTO item (, 4, """Loaded"" Chocolate Cake", "Rich chocolate cake layers with a chocolate ganache filling and chocolate buttercream. Topped with chocolate drip and various kinds of chocolates and treats.", "Menu-Pictures/14.jpg");
+INSERT INTO item (, 4, """Loaded"" Cookies and Cream", "Rich chocolate cake layers, oreo filling, and a swiss meringue oreo frosting. Topped with a chocolate drip and various cookies and cream treats.", "Menu-Pictures/15.jpg");
 
+INSERT INTO item (, 5, "2 Tier", , "Menu-Pictures/16.jpg");
 
+INSERT INTO item (, 6, "Cupcakes", , "Menu-Pictures/18.jpg");
+INSERT INTO item (, 6, "Gluten Free Cupcakes", , "Menu-Pictures/18.jpg");
+INSERT INTO item (, 6, "Vegan Cupcakes", , "Menu-Pictures/18.jpg");
 
+INSERT INTO item (, 7, "Coconut Macaroons", , "Menu-Pictures/19.jpg");
+INSERT INTO item (, 7, "Macarons", , "Menu-Pictures/20.jpg");
 
-
+INSERT INTO item (, 8, "One Layer Cookie Cake", "8"" single layer cookie cake. Choose your cookie type and favourite frosting.", "Menu-Pictures/21.jpg");
+INSERT INTO item (, 8, "Three Layer Cookie Cake", "Pick your cookie choice for three 6"" cookie layers. Filled with your favourite buttercream.", "Menu-Pictures/21.jpg");
 
 /******************************************************************* 
-  old syntax on how to enter data into database... 
+  SItem Entry Table
+**********************************************************************/
+INSERT INTO item_entry (, 1, 45, "4""");
+INSERT INTO item_entry (, 1, 55, "6""");
+INSERT INTO item_entry (, 1, 65, "6"" tall");
+INSERT INTO item_entry (, 1, 75, "8""");
+
+INSERT INTO item_entry (, 2, 50, "4""");
+INSERT INTO item_entry (, 2, 60, "6""");
+INSERT INTO item_entry (, 2, 70, "6"" tall");
+INSERT INTO item_entry (, 2, 80, "8""");
+
+INSERT INTO item_entry (, 3, 55, "4""");
+INSERT INTO item_entry (, 3, 65, "6""");
+INSERT INTO item_entry (, 3, 75, "6"" tall");
+INSERT INTO item_entry (, 3, 85, "8""");
+
+INSERT INTO item_entry (, 4, 55, "4""");
+INSERT INTO item_entry (, 4, 65, "6""");
+INSERT INTO item_entry (, 4, 75, "6"" tall");
+INSERT INTO item_entry (, 4, 85, "8""");
+
+INSERT INTO item_entry (, 5, 130, "6"" and 8""");
+INSERT INTO item_entry (, 5, 185, "8"" and 10""");
+
+INSERT INTO item_entry (, 6, 3, );
+INSERT INTO item_entry (, 6, 3.50, );
+
+INSERT INTO item_entry (, 7, 1.50, );
+INSERT INTO item_entry (, 7, 2.50, );
+
+INSERT INTO item_entry (, 8, 30, "One 8"" Layer");
+INSERT INTO item_entry (, 8, 40, "Three 6"" Layers");
+
+/******************************************************************* 
+  Item Category Table
 **********************************************************************/
 INSERT INTO item_category (category_name) Values ('Signature Cakes');
+INSERT INTO item_category (category_name) Values ('""Loaded"" Signature Cakes');
 INSERT INTO item_category (category_name) Values ('Gluten Free');
 INSERT INTO item_category (category_name) Values ('Vegan');
-INSERT INTO item_category (category_name) Values ('');
+INSERT INTO item_category (category_name) Values ('Tiered Cakes');
+INSERT INTO item_category (category_name) Values ('Cupcakes');
+INSERT INTO item_category (category_name) Values ('Cookies');
+INSERT INTO item_category (category_name) Values ('Cookie Cakes');
 
-/******************************************************************* 
-  old code for diff project
-**********************************************************************/
-INSERT INTO recipe (food_category, recipe_name, recipe_description, prep_time, cook_time) Values (1, 'Fluffy Pancakes', 'Tall and fluffy. These pancakes are just right. Topped with strawberries and whipped cream, they are impossible to resist.', '00:10', '00:10');
-INSERT INTO recipe (food_category, recipe_name, recipe_description, prep_time, cook_time) Values (2, 'VELVEETA® Cheesy Broccoli Soup', 'Pinch yourself. You are not dreaming. This thick, creamy broccoli Cheddar soup thats ready in less than 30 minutes is the real deal.', '00:10', '00:25');
-INSERT INTO recipe (food_category, recipe_name, recipe_description, prep_time, cook_time) Values (3, 'Chicken Parmesan', 'My version of chicken parmesan is a little different than what they do in the restaurants, with less sauce and a crispier crust.', '00:25', '00:20');
-
-/******************************************************************* 
-  old code
-**********************************************************************/
-
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '3/4 cup milk');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '2 tablespoons white vinegar');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '2 tablespoons white sugar');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '1 cup all-purpose flour');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '1 teaspoon baking powder');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '1/2 teaspoon baking soda');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '1/2 teaspoon salt');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '1 egg');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, '2 tablespoons butter melted');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (1, 'cooking spray');
-
-/******************************************************************* 
-  old code
-**********************************************************************/
-
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (2, '2 tablespoons butter or margarine');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (2, '1/4 cup chopped onion');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (2, '2 tablespoons flour');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (2, '2 1/2 cups milk');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (2, '3/4 pound VELVEETA®');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (2, 'cut up, 1 (10 ounce) package frozen chopped broccoli thawed/drained');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (2, '1/8 teaspoon pepper');
-
-/******************************************************************* 
-  old code
-**********************************************************************/
-
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '2 large skinless');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, 'boneless chicken breast halves');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '½ teaspoon kosher salt');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '1 pinch ground black pepper');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '1 pinch ground black pepper');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '½ cup flour');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '1 egg, beaten');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '¾ cup dry bread crumbs');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '½ cup light olive oil for frying');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, 'Cheese Spread: ½ cup ricotta cheese');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '½ cup shredded sharp white Cheddar cheese');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, 'salt and freshly ground black pepper to taste');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '½ teaspoon olive oil');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '2 tablespoons grated Parmigiano-Reggiano cheese for topping');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '1 cup marinara sauce');
-INSERT INTO ingredients (recipe_id, ingredient_name) Values (3, '1 tablespoon chopped parsley');
-
-/******************************************************************* 
-  old code
-**********************************************************************/
-
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (1, 'Combine milk with vinegar in a medium bowl and set aside for 5 minutes to "sour".');
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (1, 'Combine flour, sugar, baking powder, baking soda, and salt in a large mixing bowl. Whisk egg and butter into "soured" milk. Pour the flour mixture into the wet ingredients and whisk until lumps are gone.');
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (1, 'Heat a large skillet over medium heat, and coat with cooking spray. Pour 1/4 cupfuls of batter onto the skillet, and cook until bubbles appear on the surface. Flip with a spatula, and cook until browned on the other side.');
-
-/******************************************************************* 
-  old code
-**********************************************************************/
-
-INSERT INTO recipe_instructions (recipe_id, step_description) Values (2, 'Melt butter in large saucepan on medium heat. Add onion; cook and stir 5 minutes or until onion is tender. Add flour; cook 1 minute or until bubbly, stirring constantly.');
-INSERT INTO recipe_instructions (recipe_id, step_description) Values (2, 'Stir in milk. Bring to boil. Reduce heat to medium-low; simmer 1 minute.');
-INSERT INTO recipe_instructions (recipe_id, step_description) Values (2, 'Add remaining ingredients. Cook until VELVEETA is melted and soup is heated through, stirring occasionally.');
-
-/******************************************************************* 
-old code
-**********************************************************************/
-
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (3, 'Preheat oven to 500 degrees F (260 degrees C). Line a rimmed baking sheet with aluminum foil.');
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (3, 'Gently pound chicken breasts between 2 layers of plastic until each breast is evenly thick. Place breasts on a plate and season 1 side with kosher salt and black pepper. Sprinkle with flour; press flour to coat the entire surface and help it adhere. Turn and repeat on second side with salt, pepper, and flour.');
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (3, 'Brush excess flour from plate; place the chicken breasts back on the plate. Pour beaten egg over the breasts and coat each side. Cover bottom of a second plate with half the bread crumbs. Transfer chicken to the bread crumbs. Push crumbs up sides of chicken. Sprinkle on the remaining crumbs and thoroughly coat each side.');
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (3, 'Heat 1/2 inch olive oil in a skillet over medium-high heat. Cook chicken until crispy and golden, 2 to 3 minutes per side. Transfer to prepared baking sheet.');
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (3, 'Mix ricotta and Cheddar cheese together in a bowl. Stir in salt, black pepper, cayenne, and olive oil. Spread half the cheese mixture on each breast without extending all the way to the edges. Dust with Parmigiano-Reggiano cheese and drizzle with olive oil.');
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (3, 'Bake on center rack of preheated oven until cheese is melted and chicken is no longer pink in the center and the juices run clear, 10 to 12 minutes. An instant-read thermometer inserted into the center should read at least 165 degrees F (74 degrees C).');
-INSERT INTO recipe_instructions  (recipe_id, step_description) Values (3, 'To serve, ladle the heated marinara sauce in a wide circle on warm plates. Place chicken in center and sprinkle with chopped parsley.');
 
 
 /********************************************************************
@@ -173,8 +182,9 @@ DELETE FROM recipe_instructions WHERE recipe_id = 18;
 
 /**********************************************************************
   Update syntax:
-**********************************************************************/
+
 
 UPDATE recipe
 	SET image_dest = 'uploads/wraps.jpg'
 	WHERE id = 11;
+  **********************************************************************/
