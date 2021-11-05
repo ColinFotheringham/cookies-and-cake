@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { NavItems } from './NavItems';
+import { NavItems } from './NavItems.js';
 import './mainNav.css'
 
 function MainNav() {
