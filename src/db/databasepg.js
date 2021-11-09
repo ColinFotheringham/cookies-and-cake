@@ -6,7 +6,7 @@ const pool = new Pool({
   }
 });
 
-pool.get('/db', async (req, res) => {
+.get('/db', async (req, res) => {
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM item');
