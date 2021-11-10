@@ -1,14 +1,17 @@
 import './App.css';
 import Nav from './MainNav/MainNav';
 import 'bootstrap/dist/css/bootstrap.css'
-import logo from './Menu-Pictures/cookiesandc.jpg'
+import {Image} from 'react-bootstrap';
+import logo from './Menu-Pictures/cookiesandc.jpg';
+import Carousel from './Carousel/mainCarousel.js';
 
 function App() {
   return (
     <div className="App">
-      <img src= {logo} className="logo" alt="The logo of cookies and cake"/>
+      <Image src={logo} className="logo" alt="The logo of cookies and cake" fluid />
      <Nav/>
-     <h1>Welcome to our website</h1>
+     <Carousel/>
+     <h1>This is text</h1>
     </div>
   );
 }
