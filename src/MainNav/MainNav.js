@@ -8,7 +8,7 @@ function MainNav() {
   return (
   <Navbar bg ='myPink' variant ='light' expand="lg">
   <Container fluid>
-    <Navbar.Brand></Navbar.Brand>
+    <Navbar.Brand href="/cart">Cart</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -16,24 +16,33 @@ function MainNav() {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="#action1">Home</Nav.Link>
-        <Nav.Link href="#action2">About</Nav.Link>
+       
+        <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href="/about">About</Nav.Link>
         <NavDropdown title="Menu" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Signature Cakes</NavDropdown.Item>
+          <NavDropdown.Item href="/Signature-Cakes">Signature Cakes</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action4">"Loaded" Signature Cakes</NavDropdown.Item>
+
+          <NavDropdown.Item href="/Loaded-Signature-Cakes">"Loaded" Signature Cakes</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">Gluten Free</NavDropdown.Item>
+
+
+          <NavDropdown.Item href="/Gluten-Free">Gluten Free</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action3">Vegan</NavDropdown.Item>
+
+          <NavDropdown.Item href="/Vegan-Free">Vegan</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action4">Tiered Cakes</NavDropdown.Item>
+
+          <NavDropdown.Item href="/Tiered-Cakes">Tiered Cakes</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">Cupcakes</NavDropdown.Item>
+
+          <NavDropdown.Item href="/Cupcakes">Cupcakes</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">Cookies</NavDropdown.Item>
+
+          <NavDropdown.Item href="/Cookies">Cookies</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">Cookie Cakes</NavDropdown.Item>
+          
+          <NavDropdown.Item href="/Cookie-Cakes">Cookie Cakes</NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>
