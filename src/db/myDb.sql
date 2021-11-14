@@ -83,14 +83,14 @@ INSERT INTO item (item_category, item_name, item_description, image_dest) VALUES
 INSERT INTO item (item_category, item_name, item_description, image_dest) VALUES (4, '"Loaded" Cookies and Cream', 'Rich chocolate cake layers, oreo filling, and a swiss meringue oreo frosting. Topped with a chocolate drip and various cookies and cream treats.', 'Menu-Pictures/15.jpg');
 
 
-INSERT INTO item (item_category, item_name, image_dest) VALUES (5, '2 Tier', 'Menu-Pictures/16.jpg');
+INSERT INTO item (item_category, item_name, image_dest) VALUES (5, '2 Tier', 'Menu-Pictures/16.jpg'); //Weird
 
 INSERT INTO item (item_category, item_name, image_dest) VALUES (6, 'Cupcakes', 'Menu-Pictures/18.jpg');
 INSERT INTO item (item_category, item_name, image_dest) VALUES (6, 'Gluten Free Cupcakes', 'Menu-Pictures/18.jpg');
 INSERT INTO item (item_category, item_name, image_dest) VALUES (6, 'Vegan Cupcakes', 'Menu-Pictures/18.jpg');
 
 INSERT INTO item (item_category, item_name, image_dest) VALUES (7, 'Coconut Macaroons', 'Menu-Pictures/19.jpg');
-INSERT INTO item (item_category, item_name, image_dest) VALUES (7, 'Macarons', 'Menu-Pictures/20.jpg');
+INSERT INTO item (item_category, item_name, image_dest) VALUES (7, 'Macaroons', 'Menu-Pictures/20.jpg');
 
 INSERT INTO item (item_category, item_name, item_description, image_dest) VALUES (8, 'One Layer Cookie Cake', '8" single layer cookie cake. Choose your cookie type and favourite frosting.', 'Menu-Pictures/21.jpg');
 INSERT INTO item (item_category, item_name, item_description, image_dest) VALUES (8, 'Three Layer Cookie Cake', 'Pick your cookie choice for three 6" cookie layers. Filled with your favourite buttercream.', 'Menu-Pictures/21.jpg');
@@ -136,10 +136,12 @@ INSERT INTO item_entry (category_id, price, product_size) VALUES (8, 40, 'Three 
 INSERT INTO item_category (category_name) Values ('Signature Cakes');
 INSERT INTO item_category (category_name) Values ('"Loaded" Signature Cakes');
 INSERT INTO item_category (category_name) Values ('Gluten Free');
-INSERT INTO item_category (category_name) Values ('Vegan');
+INSERT INTO item_category (category_name) Values ('Vegan Free');
 INSERT INTO item_category (category_name) Values ('Tiered Cakes');
 INSERT INTO item_category (category_name) Values ('Cupcakes');
 INSERT INTO item_category (category_name) Values ('Cookies');
+
+
 INSERT INTO item_category (category_name) Values ('Cookie Cakes');
 
 
