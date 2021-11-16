@@ -1,25 +1,6 @@
 import React from 'react';
 import {Carousel} from 'react-bootstrap';
-import image from '../Menu-Pictures/1.jpeg'
-import image2 from '../Menu-Pictures/2.jpg'
-import image3 from '../Menu-Pictures/3.jpg'
-import image4 from '../Menu-Pictures/5.jpg'
-import image5 from '../Menu-Pictures/6.jpg'
-import image6 from '../Menu-Pictures/7.jpg'
-import image7 from '../Menu-Pictures/8.jpg'
-import image8 from '../Menu-Pictures/9.jpg'
-import image9 from '../Menu-Pictures/10.jpg'
-import image10 from '../Menu-Pictures/11.jpg'
-import image11 from '../Menu-Pictures/12.jpg'
-import image12 from '../Menu-Pictures/13.jpg'
-import image13 from '../Menu-Pictures/14.jpg'
-import image14 from '../Menu-Pictures/15.jpg'
-import image15 from '../Menu-Pictures/16.jpg'
-import image16 from '../Menu-Pictures/17.jpg'
-import image17 from '../Menu-Pictures/18.jpg'
-import image18 from '../Menu-Pictures/19.jpg'
-import image19 from '../Menu-Pictures/20.jpg'
-import image20 from '../Menu-Pictures/21.jpg'
+
 
 
 
@@ -31,7 +12,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src= {image}
+      src= "Menu-Pictures/1.jpg"
       alt="First slide"
     />
     <Carousel.Caption>
@@ -41,7 +22,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image2}
+      src="Menu-Pictures/2.jpg"
       alt="Second slide"
     />
 
@@ -52,7 +33,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image3}
+      src="Menu-Pictures/3.jpg"
       alt="Third slide"
     />
 
@@ -63,7 +44,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image4}
+      src="Menu-Pictures/5.jpg"
       alt="Third slide"
     />
 
@@ -74,19 +55,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image5}
-      alt="Third slide"
-    />
-
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image6}
+      src="Menu-Pictures/6.jpg"
       alt="Third slide"
     />
 
@@ -98,7 +67,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image7}
+      src="Menu-Pictures/7.jpg"
       alt="Third slide"
     />
 
@@ -110,7 +79,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image8}
+      src= "Menu-Pictures/8.jpg"
       alt="Third slide"
     />
 
@@ -122,7 +91,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image9}
+      src= "Menu-Pictures/9.jpg"
       alt="Third slide"
     />
 
@@ -134,7 +103,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image10}
+      src= "Menu-Pictures/10.jpg"
       alt="Third slide"
     />
 
@@ -146,7 +115,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image11}
+      src= "Menu-Pictures/11.jpg"
       alt="Third slide"
     />
 
@@ -158,7 +127,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image12}
+      src= "Menu-Pictures/12.jpg"
       alt="Third slide"
     />
 
@@ -170,7 +139,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image13}
+      src= "Menu-Pictures/13.jpg"
       alt="Third slide"
     />
 
@@ -182,7 +151,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image14}
+      src= "Menu-Pictures/14.jpg"
       alt="Third slide"
     />
 
@@ -194,7 +163,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image15}
+      src= "Menu-Pictures/15.jpg"
       alt="Third slide"
     />
 
@@ -206,7 +175,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image16}
+      src= "Menu-Pictures/16.jpg"
       alt="Third slide"
     />
 
@@ -218,7 +187,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image17}
+      src= "Menu-Pictures/17.jpg"
       alt="Third slide"
     />
 
@@ -230,7 +199,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image18}
+      src= "Menu-Pictures/18.jpg"
       alt="Third slide"
     />
 
@@ -242,7 +211,7 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image19}
+      src= "Menu-Pictures/19.jpg"
       alt="Third slide"
     />
 
@@ -254,7 +223,19 @@ return (
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image20}
+      src= "Menu-Pictures/20.jpg"
+      alt="Third slide"
+    />
+
+    <Carousel.Caption>
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src= "Menu-Pictures/21.jpg"
       alt="Third slide"
     />
 
