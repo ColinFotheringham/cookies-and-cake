@@ -1,19 +1,33 @@
 import './App.css';
-import Nav from './MainNav/MainNav';
+import Nav from './Components/Navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.css'
-import {Image} from 'react-bootstrap';
-import logo from './Menu-Pictures/cookiesandc.jpg';
-import Carousel from './Carousel/mainCarousel.js';
+import About from './Components/About.js';
+// import Menu from './Components/Menu.js';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Cart from './Components/Cart';
+import Home from './Components/Home';
+import SignUp from './Components/Signup';
+import Login from './Components/Login';
+import NotFound from './Components/NotFound';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <Image src={logo} className="logo" alt="The logo of cookies and cake" fluid />
-     <Nav/>
-     <Carousel/>
-     <h1>This is text</h1>
+    <Nav/>
+    <Routes>
+    <Route path = "/" exact element = {<Home/>}/>
+    <Route path="/About" element ={<About/>}/> 
+    {/* <Route path = "/Menu" element = {<Menu/>}/> */}
+    <Route path = "/Check-Out" element = {<Cart/>}/>
+    <Route path = "/Signup" element = {<SignUp/>}/>
+    <Route path = "/Login" element = {<Login/>}/>
+    <Route element path="*" element = {<NotFound/>}/>
+    </Routes>
     </div>
+    </Router>
   );
 }
+
 
 export default App;
