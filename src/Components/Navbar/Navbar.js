@@ -18,9 +18,9 @@ function App() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/About">About</Nav.Link>
             <Nav.Link href="/Menu">Menu</Nav.Link>
-            <Nav.Link href="/Check-Out">Check Out</Nav.Link>
             <Nav.Link href="/Signup">Sign Up</Nav.Link>
             <Nav.Link href="/Login">Login</Nav.Link>
+            <Nav.Link href="/Check-Out">Check Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       

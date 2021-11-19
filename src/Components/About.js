@@ -1,13 +1,14 @@
 // import Nav from './MainNav/MainNav';
 import React from 'react';
-
+import {Image} from 'react-bootstrap';
 
 
 function About() {
   return (
-    <div>
+    <div className="about">
+      <Image src="Menu-Pictures/cookiesandc.jpg" className="logo" alt="The logo of cookies and cake" fluid />
       <h1>About Me</h1>
-      <img src="Menu-Pictures/FamilyPic.jpg" alt="Stacey's Family"/>
+      <img src="Menu-Pictures/FamilyPic.jpg" id="family-photo" alt="Stacey's Family"/>
       <p>
        Hi I am Stacey and I am the baker at Cookies and Cake. I am a wife and mother to 2 small boys. Balancing family and business can sometimes be a struggle 
        but I love that I can share my passion for sweets with family and friends. I have loved baking since joining my mother in the kitchen as a child. 
