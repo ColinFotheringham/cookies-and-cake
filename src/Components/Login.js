@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import { auth } from '../db/Config'
+import { auth } from './db/Config'
+
 
 export const Login = (props) => {
 
