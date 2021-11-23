@@ -57,7 +57,7 @@ auth.onAuthStateChanged(user=>{
         <Route path="/login" element={<Login/>}/>
         <Route path="/add-products" element={<AddProducts/>}/>
         <Route path="/cart" element={<Cart/>}/>       
-        <Route component={<NotFound/>}/> 
+        <Route path="*" element = {<NotFound/>}/> 
         </Routes>      
       </Router>
   )
