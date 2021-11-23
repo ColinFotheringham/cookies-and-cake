@@ -68,7 +68,7 @@ let navigate = useNavigate();
         <div className = 'btn-box'>
         <span>Already have an account? Login
                 <Link to='/Login' className='link'> Here</Link></span>
-        <button type="submit" className='btn btn-success btn-md'>SIGN UP</button>
+        <button type="submit" className='btn btn-success'>SIGN UP</button>
         </div>
     </form>
     {error&&<>
