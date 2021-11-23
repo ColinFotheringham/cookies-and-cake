@@ -79,7 +79,7 @@ export const Cart = () => {
         // console.log(cartProduct);
         Product=cartProduct;
         Product.qty=Product.qty+1;
-        Product.TotalProductPrice=Product.qty*Product.price;
+        Product.TotalProductPrice=Product["Item-Price"]*Product.qty;
         // updating in database
         auth.onAuthStateChanged(user=>{
             if(user){
@@ -98,7 +98,7 @@ export const Cart = () => {
         Product=cartProduct;
         if(Product.qty > 1){
             Product.qty=Product.qty-1;
-            Product.TotalProductPrice=Product.qty*Product.price;
+            Product.TotalProductPrice=Product.qty*Product["Item-Price"];
              // updating in database
             auth.onAuthStateChanged(user=>{
                 if(user){
@@ -113,10 +113,22 @@ export const Cart = () => {
         }
     }
 
-   
+     // state of totalProducts
+     const [totalProducts, setTotalProducts]=useState(0);
+     // getting cart products   
+     useEffect(()=>{        
+         auth.onAuthStateChanged(user=>{
+             if(user){
+                 fs.collection('Cart ' + user.uid).onSnapshot(snapshot=>{
+                     const qty = snapshot.docs.length;
+                     setTotalProducts(qty);
+                 })
+             }
+         })       
+     },[])  
    
     return (
-        <>   
+        <>         
             <br></br>
             {cartProducts.length > 0 && (
                 <div className='container-fluid'>
@@ -131,7 +143,7 @@ export const Cart = () => {
                         <h5>Cart Summary</h5>
                         <br></br>
                         <div>
-                        Total No. of Products: <span>{totalQty}</span>
+                        Total No of Products: <span>{totalQty}</span>
                         </div>
                         <div>
                         Total Price to Pay: <span>$ {totalPrice}</span>

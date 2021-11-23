@@ -63,7 +63,7 @@ export const Signup = () => {
                  onChange={(e)=>setPassword(e.target.value)} value={password}></input>
                 <br></br>
                 <div className='btn-box'>
-                    <span>Already have an account Login
+                    <span>Already have an account? Login
                     <Link to="/login" className='link'> Here</Link></span>
                     <button type="submit" className='btn btn-success btn-md'>SIGN UP</button>
                 </div>
