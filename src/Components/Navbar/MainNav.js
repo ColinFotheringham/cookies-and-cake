@@ -3,7 +3,7 @@ import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Nav, Navbar } from 'react-bootstrap'
 import { useNavigate } from 'react-router';
-import { auth } from '../db/Config';
+import { auth } from '../db/DBConfig';
 
 
 export const MainNav = ({user}) => {

@@ -1,14 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-
-
-function NotFound() {
-  return (
-    <div>
-     <h1>ERROR 404 Not Found 
-     </h1>
-    </div>
-  );
+export const NotFound = () => {
+    return (
+        <div className='container-fluid'>
+            Error 404 Not found
+        </div>
+    )
 }
-
-export default NotFound;

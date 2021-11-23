@@ -1,65 +1,63 @@
-import React, {useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import { auth } from './db/Config'
+import React,{useState} from 'react'
+import {Link} from 'react-router-dom'
+import {auth} from './db/DBConfig'
+import {useNavigate} from 'react-router-dom'
 
+export const Login = () => {
 
-export const Login = (props) => {
+    const navigate = useNavigate();
 
-    let navigate = useNavigate();
+    const [email, setEmail]=useState('');
+    const [password, setPassword]=useState('');
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
+    const [errorMsg, setErrorMsg]=useState('');
+    const [successMsg, setSuccessMsg]=useState('');
 
-    const handleLogin = (e) => {
-      e.preventDefault();
-      auth.signInWithEmailAndPassword(email, password).then(() => {
-        setSuccess('Login successful! Redirecting to Home Page..')
-        setEmail('');
-        setPassword('');
-        setError('');
-        setTimeout(()=>{
-          setSuccess('');
-          navigate('/');
-        },3000)
-    }).catch(error => setError(error.message));
-}
-    
+    const handleLogin=(e)=>{
+        e.preventDefault();
+        // console.log(email, password);
+        auth.signInWithEmailAndPassword(email,password).then(()=>{
+            setSuccessMsg('Login Successfull. You will now automatically get redirected to Home page');
+            setEmail('');
+            setPassword('');
+            setErrorMsg('');
+            setTimeout(()=>{
+                setSuccessMsg('');
+                navigate('/');
+            },3000)
+        }).catch(error=>setErrorMsg(error.message));
+    }
 
-
-  return (
-    <div className='container'>
-    <br />
-    <br />
-    <h1>Login</h1>
-    {success&&<>
-    <div className='success-msg'>{success}</div>
-    <br/>
-    </>}
-    <form autoComplete="off" className='form-group' onSubmit = {handleLogin}>
-        <label htmlFor="email">Email</label>
-        <input type="email" className='form-control' required
-        onChange={(e)=> setEmail(e.target.value)} value={email}/>
-        <br />
-        <label>Password</label>
-        <input type="password" className='form-control' required
-        onChange={(e)=> setPassword(e.target.value)} value={password}/>
-        <br />
-        <div className = 'btn-box'>
-        <span>Don't have an account? Sign up
-                <Link to='/Signup' className='link'> Here</Link></span>
-        <button type="submit" className='btn btn-success btn-md'>LOGIN</button>
+    return (
+        <div className='container'>
+            <br></br>
+            <br></br>
+            <h1>Login</h1>
+            <hr></hr>
+            {successMsg&&<>
+                <div className='success-msg'>{successMsg}</div>
+                <br></br>
+            </>}
+            <form className='form-group' autoComplete="off"
+            onSubmit={handleLogin}>               
+                <label>Email</label>
+                <input type="email" className='form-control' required
+                onChange={(e)=>setEmail(e.target.value)} value={email}></input>
+                <br></br>
+                <label>Password</label>
+                <input type="password" className='form-control' required
+                onChange={(e)=>setPassword(e.target.value)} value={password}></input>
+                <br></br>
+                <div className='btn-box'>
+                    <span>Don't have an account SignUp
+                    <Link to="/signup" className='link'> Here</Link></span>
+                    <button type="submit" className='btn btn-success btn-md'>LOGIN</button>
+                </div>
+            </form>
+            {errorMsg&&<>
+                <br></br>
+                <div className='error-msg'>{errorMsg}</div>                
+            </>}
         </div>
-    </form>
-    {error&&<>
-    <div className='error-msg'>{error}</div>
-    <br/>
-    </>}
-</div>
-  );
+    )
 }
-
-
-export default Login;

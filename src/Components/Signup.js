@@ -1,81 +1,77 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {auth, fs} from './db/Config'
-import {useNavigate} from 'react-router-dom';
+import React,{useState} from 'react'
+import {auth,fs} from './db/DBConfig'
+import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
-export const Signup = (props) => {
+export const Signup = () => {
 
-let navigate = useNavigate();
+    const navigate = useNavigate();
 
+    const [UserName, setUsername]=useState('');
+    const [email, setEmail]=useState('');
+    const [password, setPassword]=useState('');
 
-  // defining state
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  
-   const [error, setError] = useState('');
-   const [success, setSuccess] = useState('');
+    const [errorMsg, setErrorMsg]=useState('');
+    const [successMsg, setSuccessMsg]=useState('');
 
-  
-  // // signup
-  const  handleSignup = (e) => {
-      e.preventDefault();
-      // console.log(userName, email, password)
-      auth.createUserWithEmailAndPassword(email, password).then((credentials)=>{
-        console.log(credentials);
-        fs.collection('users').doc(credentials.user.uid).set({
-          UserName: userName,
-          Email: email,
-          Password: password
-        }).then(() =>{
-          setSuccess('Signup was successful! Redirecting to Login Page..');
-          setUserName('');
-          setEmail('');
-          setPassword('');
-          setError('');
-          setTimeout(()=>{
-            setSuccess('');
-            navigate('/Login');
-          },3000)
-        }).catch(error => setError(error.message));
-      }).catch((error)=>{
-        setError(error.message)
-      })
+    const handleSignup=(e)=>{
+        e.preventDefault();
+       
+        auth.createUserWithEmailAndPassword(email,password).then((credentials)=>{
+            console.log(credentials);
+            fs.collection('users').doc(credentials.user.uid).set({
+                UserName: UserName,
+                Email: email,
+                Password: password
+            }).then(()=>{
+                setSuccessMsg('Signup Successfull. You will now automatically get redirected to Login');
+                setUsername('');
+                setEmail('');
+                setPassword('');
+                setErrorMsg('');
+                setTimeout(()=>{
+                    setSuccessMsg('');
+                    navigate('/login');
+                },3000)
+            }).catch(error=>setErrorMsg(error.message));
+        }).catch((error)=>{
+            setErrorMsg(error.message)
+        })
     }
 
-  return (
-    <div className='container'>
-    <br />
-    <br />
-    <h1>Sign up</h1>
-    {success&&<>
-    <div className='success-msg'>{success}</div>
-    <br/>
-    </>}
-    <form autoComplete="off" className='form-group' onSubmit={handleSignup}>
-        <label>User Name</label>
-        <input type="text" className='form-control' required
-        onChange={(e)=> setUserName(e.target.value)} value={userName}/>
-        <br />
-        <label htmlFor="email">Email</label>
-        <input type="email" className='form-control' required
-        onChange={(e)=> setEmail(e.target.value)} value={email}/>
-        <br />
-        <label>Password</label>
-        <input type="password" className='form-control' required
-        onChange={(e)=> setPassword(e.target.value)} value={password}/>
-        <br />
-        <div className = 'btn-box'>
-        <span>Already have an account? Login
-                <Link to='/Login' className='link'> Here</Link></span>
-        <button type="submit" className='btn btn-success'>SIGN UP</button>
+    return (
+        <div className='container'>
+            <br></br>
+            <br></br>
+            <h1>Sign Up</h1>
+            <hr></hr>
+            {successMsg&&<>
+                <div className='success-msg'>{successMsg}</div>
+                <br></br>
+            </>}
+            <form className='form-group' autoComplete="off" onSubmit={handleSignup}>
+                <label>Username</label>
+                <input type="text" className='form-control' required
+                onChange={(e)=>setUsername(e.target.value)} value={UserName}></input>
+                <br></br>
+                <label>Email</label>
+                <input type="email" className='form-control' required
+                 onChange={(e)=>setEmail(e.target.value)} value={email}></input>
+                <br></br>
+                <label>Password</label>
+                <input type="password" className='form-control' required
+                 onChange={(e)=>setPassword(e.target.value)} value={password}></input>
+                <br></br>
+                <div className='btn-box'>
+                    <span>Already have an account Login
+                    <Link to="/login" className='link'> Here</Link></span>
+                    <button type="submit" className='btn btn-success btn-md'>SIGN UP</button>
+                </div>
+            </form>
+            {errorMsg&&<>
+                <br></br>
+                <div className='error-msg'>{errorMsg}</div>                
+            </>}
         </div>
-    </form>
-    {error&&<>
-    <div className='error-msg'>{error}</div>
-    <br/>
-    </>}
-</div>
-  );
+    )
 }
-export default Signup;

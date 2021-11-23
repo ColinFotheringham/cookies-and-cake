@@ -1,70 +1,66 @@
-import './App.css';
+import React, {useState, useEffect} from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Menu } from './Components/Menu'
+import { Home } from './Components/Home';
+import { Login } from './Components/Login'
+import { Signup } from './Components/Signup'
+import { NotFound } from './Components/NotFound'
+import { AddProducts } from './Components/AddProducts'
+import { Cart } from './Components/Cart'
+import About from './Components/About';
+import {auth,fs} from './Components/db/DBConfig'
+import { Navbar } from './Components/Navbar'
 
-import Nav from './Components/Navbar/MainNav';
-import 'bootstrap/dist/css/bootstrap.css'
-import About from './Components/About.js';
-import Menu from './Components/Menu.js';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Cart from './Components/Cart';
-import SignUp from './Components/Signup';
-import Login from './Components/Login';
-import NotFound from './Components/NotFound';
-import {auth, fs} from '../src/Components/db/Config'
-import { useEffect, useState } from 'react';
-import {Image} from 'react-bootstrap';
-import Carousel from '../src/Components/mainCarousel';
- 
-function App() {
-
-// getting current user function
-function GetCurrentUser(){
-  const [user, setUser]=useState(null);
-  useEffect(()=>{
-      auth.onAuthStateChanged(user=>{
-          if(user){
-              fs.collection('users').doc(user.uid).get().then(snapshot=>{
-                  setUser(snapshot.data().UserName);
-              })
-          }
-          else{
-              setUser(null);
-          }
-      })
-  },[])
-  return user;
+export const App = () => {
+  
+  function GetCurrentUser(){
+    const [user, setUser]=useState(null);
+    useEffect(()=>{
+        auth.onAuthStateChanged(user=>{
+            if(user){
+                fs.collection('users').doc(user.uid).get().then(snapshot=>{
+                    setUser(snapshot.data().UserName);
+                })
+            }
+            else{
+                setUser(null);
+            }
+        })
+    },[])
+    return user;
 }
 
 const user = GetCurrentUser();
 
+// state of totalProducts
+const [totalProducts, setTotalProducts]=useState(0);
+// getting cart products   
+useEffect(()=>{        
+auth.onAuthStateChanged(user=>{
+    if(user){
+        fs.collection('Cart ' + user.uid).onSnapshot(snapshot=>{
+            const qty = snapshot.docs.length;
+            setTotalProducts(qty);
+        })
+    }
+})       
+},[])  
 
   return (
-    <Router>
-    <div className="App">
-    <Nav user={user}/>
-    <Routes>
-    <Route path = "/" exact element = {<Home/>}/>
-    <Route path="/About" element ={<About/>}/> 
-    <Route path = "/Menu" element = {<Menu/>}/>
-    <Route path = "/Check-Out" element = {<Cart/>}/>
-    <Route path = "/Signup" element = {<SignUp/>}/>
-    <Route path = "/Login" element = {<Login/>}/>
-    <Route element path="*" element = {<NotFound/>}/>
-    </Routes>
-    </div>
-    </Router>
-  );
+      <Router>
+      <Navbar user={user} totalProducts={totalProducts}/>
+      <Routes>
+        <Route exact path="/" element = {<Home/>}/>
+        <Route path="/About" element={<About/>}/>
+        <Route path="/menu" element={<Menu/>}/>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/add-products" element={<AddProducts/>}/>
+        <Route path="/cart" element={<Cart/>}/>       
+        <Route component={<NotFound/>}/> 
+        </Routes>      
+      </Router>
+  )
 }
 
-
-export default App;
-
-
-function Home () {
-  return (
-    <div>
-      <Image src="Menu-Pictures/cookiesandc.jpg" className="logo" alt="The logo of cookies and cake" fluid />
-      <Carousel/>
-    </div>
-  );
-}
-
+export default App

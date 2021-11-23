@@ -1,49 +1,119 @@
-import { collection, onSnapshot } from '@firebase/firestore';
-import {fs} from "../Components/db/Config";
-import { useEffect, useState} from 'react';
+import React,{useState, useEffect} from 'react'
+import { Products } from './Products'
+import {auth,fs} from './db/DBConfig'
+import {useNavigate} from 'react-router-dom'
 
-import { Card, Row, ListGroup, ListGroupItem} from 'react-bootstrap';
+export const Menu = () => {
+    const navigate = useNavigate();
 
-  function  Menu() {
- 
- const [items, setFoodItems] = useState([]);
-
-    useEffect(
-      () => 
-      onSnapshot(collection(fs, "Food-Item"), (snapshot) =>
-        setFoodItems(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id })))
-       ),
-      []
-);
-   console.log(items);
-
-    return (
-    <div>
-      <Row xs={2} md={3} className="g-4">
-      {items.map((item) => (
-        <div key={item.id}>
-
-          <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src= {(item["Image-Dest"])} />
-             <Card.Body>
-             <Card.Title>{item["Item-Name"]}</Card.Title>
-            <hr/>
-             <Card.Text>{item["Item-Description"]}</Card.Text>
-            </Card.Body>
-          <ListGroup className="list-group-flush">
-          
-          <ListGroupItem> <Card.Link href="#">Card Link</Card.Link></ListGroupItem>
-          <ListGroupItem> <Card.Link href="#">Another Link</Card.Link></ListGroupItem>
-        </ListGroup>
-      </Card>
-     
-        </div>
-      ))}
-             </Row>
-    </div>
-   
-     
-    );
+    // getting current user uid
+    function GetUserUid(){
+        const [uid, setUid]=useState(null);
+        useEffect(()=>{
+            auth.onAuthStateChanged(user=>{
+                if(user){
+                    setUid(user.uid);
+                }
+            })
+        },[])
+        return uid;
     }
 
-export default Menu;
+    const uid = GetUserUid();
+
+    // getting current user function
+    function GetCurrentUser(){
+        const [user, setUser]=useState(null);
+        useEffect(()=>{
+            auth.onAuthStateChanged(user=>{
+                if(user){
+                    fs.collection('users').doc(user.uid).get().then(snapshot=>{
+                        setUser(snapshot.data().UserName);
+                    })
+                }
+                else{
+                    setUser(null);
+                }
+            })
+        },[])
+        return user;
+    }
+
+    const user = GetCurrentUser();
+    // console.log(user);
+    
+    // state of products
+    const [products, setProducts]=useState([]);
+
+    // getting products function
+    const getProducts = async ()=>{
+        const products = await fs.collection('Food-Item').get();
+        const productsArray = [];
+        for (var snap of products.docs){
+            var data = snap.data();
+            data.ID = snap.id;
+            productsArray.push({
+                ...data
+            })
+            if(productsArray.length === products.docs.length){
+                setProducts(productsArray);
+            }
+        }
+    }
+
+    useEffect(()=>{
+        getProducts();
+    },[])
+
+    // state of totalProducts
+    const [totalProducts, setTotalProducts]=useState(0);
+    // getting cart products   
+    useEffect(()=>{        
+        auth.onAuthStateChanged(user=>{
+            if(user){
+                fs.collection('Cart ' + user.uid).onSnapshot(snapshot=>{
+                    const qty = snapshot.docs.length;
+                    setTotalProducts(qty);
+                })
+            }
+        })       
+    },[])  
+
+    // globl variable
+    let Product;
+
+    // add to cart
+    const addToCart = (product)=>{
+        if(uid!==null){
+            // console.log(product);
+            Product=product;
+            Product['qty']=1;
+            Product['TotalProductPrice']=Product.qty*Product.price;
+            fs.collection('Cart ' + uid).doc(product.ID).set(Product).then(()=>{
+                console.log('successfully added to cart');
+            })
+
+        }
+        else{
+           navigate('/login');
+        }
+        
+    }
+    
+    return (
+        <>       
+            <br></br>
+            {products.length > 0 && (
+                <div className='container-fluid'>
+                    <h1 className='text-center'>Menu</h1>
+                    <div className='products-box'>
+                        <Products products={products} addToCart={addToCart}/>
+                    </div>
+                </div>
+            )}
+            {products.length < 1 && (
+                <div className='container-fluid'>Please wait....</div>
+            )}
+        </>
+    )
+}
