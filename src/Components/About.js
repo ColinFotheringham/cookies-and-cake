@@ -4,7 +4,7 @@ import React from 'react';
 function About() {
   return (
     <div className="about">
-      <img src="Menu-Pictures/cookiesandc.jpg" className="logo mx-auto d-block" alt="The logo of cookies and cake" fluid />
+      <img src="Menu-Pictures/cookiesandc.jpg" className="logo mx-auto d-block banner" alt="The logo of cookies and cake" fluid />
       <h1>About Me</h1>
       <img src="Menu-Pictures/FamilyPic.jpg" id="family-photo" alt="Stacey's Family"/>
       <p>

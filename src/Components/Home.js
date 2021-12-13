@@ -6,7 +6,7 @@ export const Home = () => {
     return (
         <div>  
         
-        <img src="Menu-Pictures/cookiesandc.jpg" className="logo mx-auto d-block" alt="The logo of cookies and cake" fluid />
+        <img src="Menu-Pictures/cookiesandc.jpg" className="logo mx-auto d-block banner" alt="The logo of cookies and cake" fluid />
         </div>
     )
 }
