@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import {auth,fs} from './db/DBConfig'
 import { CartProducts } from './CartProducts';
+import PayPal from './PayPal';
 
 
 export const Cart = () => {
@@ -149,6 +150,7 @@ export const Cart = () => {
                         Total Price to Pay: <span>$ {totalPrice}</span>
                         </div>
                         <br></br>
+                        <PayPal ></PayPal>
                     </div>                                    
                 </div>
             )}
