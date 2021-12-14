@@ -5,12 +5,12 @@ import { Home } from './Components/Home';
 import { Login } from './Components/Login'
 import { Signup } from './Components/Signup'
 import { NotFound } from './Components/NotFound'
-// import { AddProducts } from './Components/AddProducts'
+import { AddProducts } from './Components/AddProducts'
 import { Cart } from './Components/Cart'
 import About from './Components/About';
 import {auth,fs} from './Components/db/DBConfig'
 import { MainNavbar} from './Components/MainNavbar'
-
+import { MainCustom } from './Components/MainCustom'
 export const App = () => {
   
   function GetCurrentUser(){
@@ -55,9 +55,10 @@ auth.onAuthStateChanged(user=>{
         <Route path="/Menu" element={<Menu/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
-        {/* <Route path="/add-products" element={<AddProducts/>}/> */}
+        <Route path="/add-products" element={<AddProducts/>}/>
+        <Route path="/custom" element={<MainCustom/>}/> 
         <Route path="/cart" element={<Cart/>}/>       
-        {/* <Route path="*" element = {<NotFound/>}/>  */}
+        <Route path="*" element = {<NotFound/>}/> 
         </Routes>      
       </Router>
   )
