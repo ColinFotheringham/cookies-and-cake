@@ -1,16 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom"
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js"
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 function Pay({dataParentToChild}) {
-    console.log({dataParentToChild});
-  const createOrder = (dataParentToChild, actions) =>{
+  const total = dataParentToChild;
+  const createOrder = (data, actions) =>{
+    console.log(total);
     return actions.order.create({
       purchase_units: [
         {
           amount: {
-            value: dataParentToChild,
+            currency_code: "CAD",
+            value: data.total,
           },
         },
       ],
