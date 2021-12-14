@@ -6,6 +6,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.banner {
+  max-width: 100%;
+  height: auto;
+}
+
 h1 {
   padding: 10px;
   border-bottom: 2px solid #000;
@@ -49,6 +54,18 @@ h1 {
 
 .link{
   text-decoration: none;
+}
+
+#home-paragraph {
+  padding: 10px;
+  border-bottom: 2px solid #000;
+  border-top: 2px solid #000;
+  margin: 5%;
+  text-align: center;
+}
+
+.carousel {
+  background-color: #dea5a4;
 }
 
 /* navbar */
@@ -273,5 +290,17 @@ h1 {
   #family-photo {
       max-width: 43%;
       margin-right: 0;
+  }
+}
+
+@media(min-width: 1000px) {
+  #family-photo {
+      margin-left: 8%;
+  }
+}
+
+@media(min-width: 1500px) {
+  #family-photo {
+      margin-left: 15%;
   }
 }
