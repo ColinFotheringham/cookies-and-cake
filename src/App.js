@@ -52,10 +52,10 @@ auth.onAuthStateChanged(user=>{
       <Routes>
         <Route exact path="/" element = {<Home/>}/>
         <Route path="/About" element={<About/>}/>
-        <Route path="/menu" element={<Menu/>}/>
+        <Route path="/Menu" element={<Menu/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/add-products" element={<AddProducts/>}/>
+        {/* <Route path="/add-products" element={<AddProducts/>}/> */}
         <Route path="/cart" element={<Cart/>}/>       
         <Route path="*" element = {<NotFound/>}/> 
         </Routes>      
