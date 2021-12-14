@@ -83,12 +83,12 @@ export const Menu = () => {
     let Product;
 
     // add to cart
-    const addToCart = (product)=>{
+    const addToCart = async (product)=>{
         if(uid!==null){
             // console.log(product);
             Product=product;
             Product['qty']=1;
-            Product['TotalProductPrice']=Product.qty*Product.price;
+            Product['TotalProductPrice']=Product.qty*Product["Item-Price"];
             fs.collection('Cart ' + uid).doc(product.ID).set(Product).then(()=>{
                 console.log('successfully added to cart');
             })
