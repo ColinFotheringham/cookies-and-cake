@@ -9,7 +9,7 @@ import { NotFound } from './Components/NotFound'
 import { Cart } from './Components/Cart'
 import About from './Components/About';
 import {auth,fs} from './Components/db/DBConfig'
-import { MainNavbar as Navbar } from './Components/MainNavbar'
+import { MainNavbar} from './Components/MainNavbar'
 
 export const App = () => {
   
@@ -48,7 +48,7 @@ auth.onAuthStateChanged(user=>{
 
   return (
       <Router>
-      <Navbar user={user} totalProducts={totalProducts}/>
+      <MainNavbar user={user} totalProducts={totalProducts}/>
       <Routes>
         <Route exact path="/" element = {<Home/>}/>
         <Route path="/About" element={<About/>}/>
