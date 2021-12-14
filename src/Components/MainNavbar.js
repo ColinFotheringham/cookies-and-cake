@@ -24,10 +24,10 @@ export const MainNavbar = ({user,totalProducts}) => {
                 {!user&&<>
                     <Navbar.Collapse id="basic-navbar-nav">
 	            	<Nav className="me-auto">
-                    <Link to="About">About</Link>
-                    <Link to="Menu"> Menu</Link>
-                    <Link to="signup">Sign Up</Link>
-                    <Link to="login">Login</Link>
+                    <Link className="nav-link" to="About">About</Link>
+                    <Link className="nav-link" to="Menu"> Menu</Link>
+                    <Link className="nav-link" to="signup">Sign Up</Link>
+                    <Link className="nav-link" to="login">Login</Link>
                     </Nav>
                     </Navbar.Collapse>
                 </>} 
@@ -35,10 +35,10 @@ export const MainNavbar = ({user,totalProducts}) => {
                 {user&&<>
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                    <Link to="About"> About</Link>
-                    <Link to="Menu"> Menu</Link>
-                    <Link to="/">Logged in: {user}</Link>
-                    <Link to="cart"><img src="Menu-Pictures/cart.png"/> <span className='cart-indicator'>{totalProducts}</span></Link>   
+                    <Link className="nav-link" to="About"> About</Link>
+                    <Link className="nav-link" to="Menu"> Menu</Link>
+                    <Link className="nav-link" to="/">Logged in: {user}</Link>
+                    <Link className="nav-link" to="cart"><img src="Menu-Pictures/cart.png"/> <span className='cart-indicator'>{totalProducts}</span></Link>   
                     <div className='btn btn-danger btn-md'
                     onClick={handleLogout}>Logout</div>
                     </Nav>

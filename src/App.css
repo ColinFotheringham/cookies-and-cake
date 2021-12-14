@@ -32,7 +32,15 @@ body {
 
 .link {
     text-decoration: none;
+    
 }
+
+.nav-link{
+    text-decoration: none;
+    
+}
+
+
 
 .btn-box{
     display: flex;
