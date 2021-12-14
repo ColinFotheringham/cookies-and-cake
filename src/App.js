@@ -9,7 +9,7 @@ import { AddProducts } from './Components/AddProducts'
 import { Cart } from './Components/Cart'
 import About from './Components/About';
 import {auth,fs} from './Components/db/DBConfig'
-import { Navbar } from './Components/Navbar'
+import { MainNavbar as Navbar } from './Components/MainNavbar'
 
 export const App = () => {
   
