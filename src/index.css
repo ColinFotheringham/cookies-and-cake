@@ -64,6 +64,10 @@ h1 {
   text-align: center;
 }
 
+.carousel {
+  background-color: #dea5a4;
+}
+
 /* navbar */
 .navbar{
   width: 100%;
