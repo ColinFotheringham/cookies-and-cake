@@ -3,14 +3,14 @@ import ReactDOM from "react-dom"
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js"
 
 
-function Pay() {
-  const createOrder = (data, actions) =>{
-      console.log(data);
+function Pay({dataParentToChild}) {
+    console.log({dataParentToChild});
+  const createOrder = (dataParentToChild, actions) =>{
     return actions.order.create({
       purchase_units: [
         {
           amount: {
-            value: 0.01,
+            value: dataParentToChild,
           },
         },
       ],
@@ -22,7 +22,7 @@ function Pay() {
   };
 
   return (
-    <PayPalScriptProvider options={{ "client-id": "test" }}>
+    <PayPalScriptProvider options={{ "client-id": "Af3X6n7Tv2EbLCx91RtQVAbFjsjcNGPv_rgRkECQt37mZN9lh2-WJ8vLoHg7FhaOAWlj3g-alZaBcRDc" }}>
         <PayPalButtons style={{ layout: "vertical" }} />
     </PayPalScriptProvider>
   );

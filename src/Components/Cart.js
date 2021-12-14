@@ -127,7 +127,8 @@ export const Cart = () => {
              }
          })       
      },[])  
-   
+
+    
     return (
         <>         
             <br></br>
@@ -150,7 +151,7 @@ export const Cart = () => {
                         Total Price to Pay: <span>$ {totalPrice}</span>
                         </div>
                         <br></br>
-                        <PayPal ></PayPal>
+                        <PayPal dataParentToChild={totalPrice}></PayPal>
                     </div>                                    
                 </div>
             )}
